@@ -30,6 +30,7 @@ function getCookie(name) {
 	return(cookie_value);
 }
 
+alert(getCookie('warning_has_shown'));
 if (getCookie('warning_has_shown') != 'yes') {
-	location.href = 'http://blog.leezhong.com/ie6-warning/index.html?return='+location.href;
+	location.href = 'http://blog.leezhong.com/ie6-warning/warning.html?return='+location.href;
 }
