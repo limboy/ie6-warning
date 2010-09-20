@@ -31,5 +31,5 @@ function getCookie(name) {
 }
 
 if (getCookie('warning_has_shown') != 'yes') {
-	location.href = 'http://localhost/lab/side_project/ie6-warning/warning.html?return='+location.href;
+	location.href = 'http://blog.leezhong.com/ie6-warning/warning.html?return='+location.href;
 }
