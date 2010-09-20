@@ -1,80 +1,89 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>warning</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script>
+item = location.href.split('return=');
+var return_url = item[1];
 
-	<title>lzyy/ie6-warning @ GitHub</title>
+function agree() {
+	setCookie('warning_has_shown', 'yes');
+	location.href = return_url;
+}
+
+function setCookie(name, value) {
+	if(name != '')
+		today = new Date();
+	expires = new Date(today.getTime() + (8 * 7 * 86400000)); 
+	document.cookie = name + '=' + value + '; expires=' + expires;
+}
+
+function getCookie(name) {
+	if(name == '')
+		return('');
+
+	name_index = document.cookie.indexOf(name + '=');
+
+	if(name_index == -1)
+		return('');
+
+	cookie_value =  document.cookie.substr(name_index + name.length + 1, document.cookie.length);
+
+	end_of_cookie = cookie_value.indexOf(';');
+	if(end_of_cookie != -1)
+		cookie_value = cookie_value.substr(0, end_of_cookie);
+
+	space = cookie_value.indexOf('+');
+	while(space != -1) { 
+		cookie_value = cookie_value.substr(0, space) + ' ' + 
+		cookie_value.substr(space + 1, cookie_value.length);
+		space = cookie_value.indexOf('+');
+	}
+
+	return(cookie_value);
+ }
 	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #96a1c3;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #695e3c; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #695e3c; }
-    h3 { text-align: center; color: #695e3c; }
-    a { color: #695e3c; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+</script>
 </head>
 
 <body>
-  <a href="http://github.com/lzyy/ie6-warning"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/lzyy/ie6-warning/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/lzyy/ie6-warning/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-    <h1><a href="http://github.com/lzyy/ie6-warning">ie6-warning</a>
-      <span class="small">by <a href="http://github.com/lzyy">lzyy</a></span></h1>
-
-    <div class="description">
-      browser update warning
-    </div>
-
-    <h2>Authors</h2>
-<p>lzyy (healdream@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>leezhong (healdream@gmail.com)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/lzyy/ie6-warning/zipball/master">zip</a> or
-      <a href="http://github.com/lzyy/ie6-warning/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/lzyy/ie6-warning</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/lzyy/ie6-warning">lzyy/ie6-warning</a>
-    </div>
-
-  </div>
-
-  
+<div class="warn">
+	<div class="black">
+		<h1><span class="orange">Oops!</span> 你还在使用Internet Exeplorer 6 浏览器？</h1>
+		<p>IE6浏览器不仅对新的网页技术无法支持，同时也存在大量安全的隐患。我建议你可以任选下载以下免费浏览器的最新版本，它们来自于苹果、谷歌等这样值得信赖的公司，安全、快速、免费，都是比IE更好的选择。
+下载安装后，你也可以为更好的互联网环境提供了一份有力的支持</p>
+		<div class="action clear">
+			<div class="left">
+				<input checked="checked" type="checkbox"> 我知道了，不再显示
+			</div>
+			<div class="right">
+				<a href="javascript:void(0);" onclick="agree()"><img src="img/warning.png" /></a>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="white clear">
+		<ul class="browser">
+			<li>
+				<p><a href="http://www.apple.com.cn/safari/" target="_blank"><img src="img/safari.png" /></a></p>
+				<p><a href="http://www.apple.com.cn/safari/" target="_blank">Safari</a></p>
+			</li>
+			<li>
+				<p><a href="http://www.google.com/chrome/?hl=zh-CN" target="_blank"><img src="img/chrome.png" /></a></p>
+				<p><a href="http://www.google.com/chrome/?hl=zh-CN" target="_blank">Chrome</a></p>
+			</li>
+			<li>
+				<p><a href="http://www.mozillaonline.com/" target="_blank"><img src="img/firefox.png" /></a></p>
+				<p><a href="http://www.mozillaonline.com/" target="_blank">Firefox</a></p>
+			</li>
+			<li>
+				<p><a href="http://www.operachina.com/" target="_blank"><img src="img/opera.png" /></a></p>
+				<p><a href="http://www.operachina.com/" target="_blank">Opera</a></p>
+			</li>
+		</ul>
+	</div>
+</div>
 </body>
-</html>
