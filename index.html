@@ -5,12 +5,12 @@
 <title>warning</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script>
-item = location.href.split('return=');
+var item = location.href.split('return=');
 var return_url = item[1];
 
 function agree() {
 	setCookie('warning_has_shown', 'yes');
-	location.href = return_url;
+	window.location.href = return_url;
 }
 
 function setCookie(name, value) {
@@ -59,7 +59,7 @@ function getCookie(name) {
 				<input checked="checked" type="checkbox"> 我知道了，不再显示
 			</div>
 			<div class="right">
-				<a href="javascript:void(0);" onclick="agree()"><img src="img/warning.png" /></a>
+				<a style="cursor:pointer" onclick="agree()"><img src="img/warning.png" /></a>
 			</div>
 		</div>
 		
