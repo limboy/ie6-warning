@@ -10,11 +10,10 @@ IE6友好提示工具
 切换到gh-pages Branch，下载文件，修改ie6-warning.js文件最后的"warning_url"变量(也就是warning显示页)
 
 引用文件
-`
-<!--[if IE 6]>
-<script type="text/javascript" src="/path/to/your/ie6-warning.js"></script>
-<![endif]-->
-`
+
+	<!--[if IE 6]>
+	<script type="text/javascript" src="/path/to/your/ie6-warning.js"></script>
+	<![endif]-->
 
 **注意**
 
